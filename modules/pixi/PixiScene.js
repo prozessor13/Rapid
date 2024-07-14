@@ -18,6 +18,7 @@ import { PixiLayerOsmNotes } from './PixiLayerOsmNotes.js';
 import { PixiLayerOsmose } from './PixiLayerOsmose.js';
 import { PixiLayerRapid } from './PixiLayerRapid.js';
 import { PixiLayerStreetsidePhotos } from './PixiLayerStreetsidePhotos.js';
+import { PixiLayerHudhudStreets } from './PixiLayerHudhudStreets.js';
 import { PixiLayerGeoScribble } from './PixiLayerGeoScribble.js';
 
 
@@ -94,7 +95,6 @@ export class PixiScene extends EventEmitter {
       new PixiLayerOsm(this, 'osm'),
       new PixiLayerRapid(this, 'rapid'),
 
-
       new PixiLayerMapillaryFeatures(this, 'mapillary-map-features'),
       new PixiLayerMapillarySigns(this, 'mapillary-signs'),
 
@@ -108,6 +108,7 @@ export class PixiScene extends EventEmitter {
       new PixiLayerMapillaryPhotos(this, 'mapillary'),
       new PixiLayerKartaPhotos(this, 'kartaview'),
       new PixiLayerStreetsidePhotos(this, 'streetside'),
+      new PixiLayerHudhudStreets(this, 'hudhud_streets'),
 
       new PixiLayerLabels(this, 'labels'),
       new PixiLayerEditBlocks(this, 'edit-blocks'),

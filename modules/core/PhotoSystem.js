@@ -24,13 +24,14 @@ export class PhotoSystem extends AbstractSystem {
     this.id = 'photos';
     this.dependencies = new Set(['map', 'urlhash']);
 
-    this._LAYERIDS = ['streetside', 'mapillary', 'mapillary-map-features', 'mapillary-signs', 'kartaview'];
+    this._LAYERIDS = ['streetside', 'mapillary', 'mapillary-map-features', 'mapillary-signs', 'kartaview', 'hudhud_streets'];
     this._LAYERNAMES = {
       'streetside': 'Bing Streetside',
       'mapillary': 'Mapillary',
       'mapillary-map-features': 'Mapillary Map Features',
       'mapillary-signs': 'Mapillary Street Signs',
-      'kartaview': 'KartaView'
+      'kartaview': 'KartaView',
+      'hudhud_streets': 'Hudhud Streets'
     };
     this._PHOTOTYPES = ['flat', 'panoramic'];
     this._DATEFILTERS = ['fromDate', 'toDate'];

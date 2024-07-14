@@ -35,8 +35,8 @@ export class OsmService extends AbstractSystem {
     // Some defaults that we will replace with whatever we fetch from the OSM API capabilities result.
     this._maxWayNodes = 2000;
     this._imageryBlocklists = [/.*\.google(apis)?\..*\/(vt|kh)[\?\/].*([xyz]=.*){3}.*/];
-    this._wwwroot = 'https://www.openstreetmap.org';
-    this._apiroot = 'https://api.openstreetmap.org';
+    this._wwwroot = context.apiConnections ? context.apiConnections[0].url : 'https://www.openstreetmap.org';
+    this._apiroot = context.apiConnections ? context.apiConnections[0].apiUrl : 'https://api.openstreetmap.org';
 
     this._tileCache = {};
     this._noteCache = {};
@@ -114,8 +114,8 @@ export class OsmService extends AbstractSystem {
     this._oauth = osmAuth({
       url: this._wwwroot,
       apiUrl: this._apiroot,
-      client_id: 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
-      client_secret: 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE',
+      client_id: context.apiConnections ? context.apiConnections[0].client_id : 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
+      client_secret: context.apiConnections ? context.apiConnections[0].client_secret : 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE',
       scope: 'read_prefs write_prefs write_api read_gpx write_notes',
       redirect_uri: redirect_uri,
       loading: this._authLoading,

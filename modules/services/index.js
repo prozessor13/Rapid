@@ -3,6 +3,7 @@ import { ImproveOsmService } from './ImproveOsmService.js';
 import { KartaviewService } from './KartaviewService.js';
 import { KeepRightService } from './KeepRightService.js';
 import { MapillaryService } from './MapillaryService.js';
+import { HudhudStreetsService } from './HudhudStreetsService.js';
 import { MapRouletteService } from './MapRouletteService.js';
 import { MapWithAIService } from './MapWithAIService.js';
 import { NominatimService } from './NominatimService.js';
@@ -21,6 +22,7 @@ export {
   EsriService,
   ImproveOsmService,
   KartaviewService,
+  HudhudStreetsService,
   KeepRightService,
   MapillaryService,
   MapRouletteService,
@@ -46,6 +48,7 @@ services.available.set('esri', EsriService);
 services.available.set('geoScribble', GeoScribbleService);
 services.available.set('improveOSM', ImproveOsmService);
 services.available.set('kartaview', KartaviewService);
+services.available.set('hudhud_streets', HudhudStreetsService);
 services.available.set('keepRight', KeepRightService);
 services.available.set('mapillary', MapillaryService);
 services.available.set('maproulette', MapRouletteService);

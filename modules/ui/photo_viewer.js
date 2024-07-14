@@ -15,7 +15,7 @@ export function uiPhotoViewer(context) {
       .append('button')
       .attr('class', 'thumb-hide')
       .on('click', () => {
-        for (const serviceID of ['mapillary', 'kartaview', 'streetside']) {
+        for (const serviceID of ['mapillary', 'kartaview', 'streetside', 'hudhud_streets']) {
           const service = context.services[serviceID];
           service?.hideViewer();
         }

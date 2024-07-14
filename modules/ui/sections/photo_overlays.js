@@ -16,6 +16,7 @@ import { utilGetSetValue, utilNoAuto } from '../../util/index.js';
  *      ◻ Map Features
  *      ◻ Traffic Signs
  *    ◻ KartaView
+ *    ◻ Hudhud Streets
  *
  *    ◻ Flat Photos
  *    ◻ Panoramic Photos
@@ -130,7 +131,7 @@ export function uiSectionPhotoOverlays(context) {
         else stringID = d.id.replace(/-/g, '_') + '.tooltip';
         d3_select(nodes[i])
           .call(uiTooltip(context)
-            .title(l10n.t(stringID))
+            .title(d.id === 'hudhud_streets' ? 'Street-level photos from Hudhud' : l10n.t(stringID))
             .placement('top')
           );
       });
@@ -145,7 +146,7 @@ export function uiSectionPhotoOverlays(context) {
       .text(d => {
         let stringID = d.id;
         if (stringID === 'mapillary-signs') stringID = 'photo_overlays.traffic_signs';
-        return l10n.t(stringID.replace(/-/g, '_') + '.title');
+        return stringID == "hudhud_streets" ? "HudHud Streets" : l10n.t(stringID.replace(/-/g, '_') + '.title');
       });
 
     // Update

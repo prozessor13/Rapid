@@ -186,7 +186,7 @@ export function uiCommit(context) {
     // Users may provide their own `source` values, but these are some values that we set below
     const toRemove = [
       'aerial imagery', 'streetlevel imagery',
-      'mapillary', 'kartaview', 'streetside',
+      'mapillary', 'kartaview', 'streetside', 'hudhud_streets',
       'mapwithai', 'esri',
     ];
     for (const v of toRemove) {
@@ -217,7 +217,7 @@ export function uiCommit(context) {
     if (used.photos.size) {
       sources.add('streetlevel imagery');
       for (const v of used.photos) {
-        const match = v.match(/(mapillary|kartaview|streetside)/i);
+        const match = v.match(/(mapillary|kartaview|streetside|hudhud_streets)/i);
         if (match !== null) {
           sources.add(match[1]);
         }

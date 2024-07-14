@@ -26,7 +26,7 @@ export function uiSourceSwitch(context) {
     context.resetAsync()   // remove downloaded data
       .then(() => {
         d3_select(this)
-          .html(isLive ? l10n.tHtml('source_switch.live') : l10n.tHtml('source_switch.dev'))
+          .html(isLive ? 'Hudhud' : 'OSM')
           .classed('live', isLive)
           .classed('chip', isLive);
 
@@ -38,7 +38,7 @@ export function uiSourceSwitch(context) {
     selection
       .append('a')
       .attr('href', '#')
-      .html(l10n.tHtml('source_switch.live'))
+      .html('Hudhud')
       .attr('class', 'live chip')
       .on('click', click);
   };

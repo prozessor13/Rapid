@@ -571,6 +571,7 @@ export class StreetsideService extends AbstractSystem {
    */
   _loadAssetsAsync() {
     if (this._loadPromise) return this._loadPromise;
+    if (window.pannellum) return Promise.resolve();
 
     return this._loadPromise = new Promise((resolve, reject) => {
       let count = 0;
@@ -620,7 +621,7 @@ export class StreetsideService extends AbstractSystem {
     };
     options.scenes[sceneID] = this._sceneOptions;
 
-    this._pannellumViewer = window.pannellum.viewer('rapideditor-viewer-streetside', options);
+    this._pannellumViewer = window.pannellum.viewer('rapideditor-viewer-hudhud_streets', options);
   }
 
 
