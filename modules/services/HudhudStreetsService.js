@@ -7,7 +7,6 @@ import RBush from 'rbush';
 import { AbstractSystem } from '../core/AbstractSystem.js';
 import { utilFetchResponse } from '../util/index.js';
 
-const HUDHUD_API = '';
 const PANNELLUM_JS = 'https://cdn.jsdelivr.net/npm/pannellum@2/build/pannellum.min.js';
 const PANNELLUM_CSS = 'https://cdn.jsdelivr.net/npm/pannellum@2/build/pannellum.min.css';
 const TILEZOOM = 16;
@@ -203,7 +202,7 @@ export class HudhudStreetsService extends AbstractSystem {
 
     const bbox = tile.wgs84Extent.bbox();
     const controller = new AbortController();
-    fetch(`${HUDHUD_API}?bbox=${[bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].join(",")}`, { signal: controller.signal })
+    fetch(`${this.context.HUDHUD_API}?bbox=${[bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].join(",")}`, { signal: controller.signal })
       .then(utilFetchResponse)
       .then(res => {
         this._cache.loaded.add(tile.id);
