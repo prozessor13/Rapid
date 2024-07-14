@@ -42,6 +42,10 @@
           container.style.padding = '20px';
 
         } else {
+          // ADD here connection to Hudhud OSM DB
+          const OSM_URL = '';
+          const OSM_CLIENT_ID = '';
+          const OSM_CLIENT_SECRET = '';
           const context = new Rapid.Context();
           context.containerNode = container;
           context.assetPath = 'dist/';
@@ -50,10 +54,10 @@
           context.buildDate = '';
           context.apiConnections = [
             {
-              url: 'https://www.openstreetmap.org',
-              apiUrl: 'https://api.openstreetmap.org',
-              client_id: 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
-              client_secret: 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
+              url: OSM_URL || 'https://www.openstreetmap.org',
+              apiUrl: OSM_URL || 'https://api.openstreetmap.org',
+              client_id: OSM_CLIENT_ID || 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
+              client_secret: OSM_CLIENT_SECRET || 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
             }, {
               url: 'https://www.openstreetmap.org',
               apiUrl: 'https://api.openstreetmap.org',

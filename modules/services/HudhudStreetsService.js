@@ -7,10 +7,10 @@ import RBush from 'rbush';
 import { AbstractSystem } from '../core/AbstractSystem.js';
 import { utilFetchResponse } from '../util/index.js';
 
-const KARTAVIEW_API = 'https://kartaview.org';
+const HUDHUD_API = '';
 const PANNELLUM_JS = 'https://cdn.jsdelivr.net/npm/pannellum@2/build/pannellum.min.js';
 const PANNELLUM_CSS = 'https://cdn.jsdelivr.net/npm/pannellum@2/build/pannellum.min.css';
-const TILEZOOM = 14;
+const TILEZOOM = 16;
 
 
 /**
@@ -203,28 +203,21 @@ export class HudhudStreetsService extends AbstractSystem {
 
     const bbox = tile.wgs84Extent.bbox();
     const controller = new AbortController();
-    const options = {
-      method: 'POST',
-      signal: controller.signal,
-      body: utilQsString({
-        // bbox: [bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].jsoin(",")
-        ipp: 1000,
-        page: 1,
-        bbTopLeft: [bbox.maxY, bbox.minX].join(','),
-        bbBottomRight: [bbox.minY, bbox.maxX].join(','),
-      }, true),
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    };
-    const url = `${KARTAVIEW_API}/1.0/list/nearby-photos/`;
-
-    fetch(url, options)
+    fetch(`${HUDHUD_API}?bbox=${[bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].join(",")}`, { signal: controller.signal })
       .then(utilFetchResponse)
-      .then(data => {
+      .then(res => {
         this._cache.loaded.add(tile.id);
         const imageBoxes = [];
-        for (let image of data.currentPageItems) {
-          image.imagePath = "https://static.maptoolkit.net/examplepano.jpg"; // REMOVEME!
-          image.captured_at = new Date();
+        const images = res && res.data && res.data.length ? res.data : [];
+        for (let i of images) {
+          const image = {
+            id: i.id,
+            heading: JSON.parse(i.metadata).GPSImgDirection,
+            lat: i.point.lat,
+            lng: i.point.lon,
+            imagePath: i.url,
+            captured_at: new Date(i.created_at)
+          };
           this._cache.images.set(image.id, image);
           imageBoxes.push({ minX: image.lng, minY: image.lat, maxX: image.lng, maxY: image.lat, data: image });
         }
