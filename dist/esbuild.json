@@ -23746,7 +23746,7 @@
       "format": "esm"
     },
     "modules/services/HudhudStreetsService.js": {
-      "bytes": 11126,
+      "bytes": 11137,
       "imports": [
         {
           "path": "node_modules/d3-selection/src/index.js",
@@ -28623,7 +28623,7 @@
       "imports": [],
       "exports": [],
       "inputs": {},
-      "bytes": 9881062
+      "bytes": 9881075
     },
     "dist/rapid.js": {
       "imports": [],
@@ -31535,7 +31535,7 @@
           "bytesInOutput": 23434
         },
         "modules/services/HudhudStreetsService.js": {
-          "bytesInOutput": 10010
+          "bytesInOutput": 10021
         },
         "modules/services/MapRouletteService.js": {
           "bytesInOutput": 12475
@@ -31640,7 +31640,7 @@
           "bytesInOutput": 512
         }
       },
-      "bytes": 5031155
+      "bytes": 5031166
     }
   }
 }

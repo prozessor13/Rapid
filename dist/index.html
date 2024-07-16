@@ -48,21 +48,25 @@
           context.buildID = '';
           context.buildSHA = '';
           context.buildDate = '';
-          context.OSM_URL = '';
-          context.OSM_CLIENT_ID = '';
-          context.OSM_CLIENT_SECRET = '';
-          context.HUDHUD_API = '';
+          context.PUBLIC_OSM_URL = '';
+          context.PUBLIC_OSM_API = '';
+          context.PUBLIC_OSM_CLIENT_ID = '';
+          context.PUBLIC_OSM_CLIENT_SECRET = '';
+          context.HUDHUD_OSM_URL = '';
+          context.HUDHUD_OSM_CLIENT_ID = '';
+          context.HUDHUD_OSM_CLIENT_SECRET = '';
+          context.HUDHUD_STREETVIEW_API = '';
           context.apiConnections = [
             {
-              url: context.OSM_URL || 'https://www.openstreetmap.org',
-              apiUrl: context.OSM_URL || 'https://api.openstreetmap.org',
-              client_id: context.OSM_CLIENT_ID || 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
-              client_secret: context.OSM_CLIENT_SECRET || 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
+              url: context.HUDHUD_OSM_URL || 'https://www.openstreetmap.org',
+              apiUrl: context.HUDHUD_OSM_URL || 'https://api.openstreetmap.org',
+              client_id: context.HUDHUD_OSM_CLIENT_ID || 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
+              client_secret: context.HUDHUD_OSM_CLIENT_SECRET || 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
             }, {
-              url: 'https://www.openstreetmap.org',
-              apiUrl: 'https://api.openstreetmap.org',
-              client_id: 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
-              client_secret: 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
+              url: context.PUBLIC_OSM_URL || 'https://www.openstreetmap.org',
+              apiUrl: context.PUBLIC_OSM_API || 'https://api.openstreetmap.org',
+              client_id: context.PUBLIC_OSM_CLIENT_ID || 'O3g0mOUuA2WY5Fs826j5tP260qR3DDX7cIIE2R2WWSc',
+              client_secret: context.PUBLIC_OSM_CLIENT_SECRET || 'b4aeHD1cNeapPPQTrvpPoExqQRjybit6JBlNnxh62uE'
             }
           ];
 

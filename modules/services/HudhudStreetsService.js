@@ -202,7 +202,7 @@ export class HudhudStreetsService extends AbstractSystem {
 
     const bbox = tile.wgs84Extent.bbox();
     const controller = new AbortController();
-    fetch(`${this.context.HUDHUD_API}?bbox=${[bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].join(",")}`, { signal: controller.signal })
+    fetch(`${this.context.HUDHUD_STREETVIEW_API}?bbox=${[bbox.minX, bbox.minY, bbox.maxX, bbox.maxY].join(",")}`, { signal: controller.signal })
       .then(utilFetchResponse)
       .then(res => {
         this._cache.loaded.add(tile.id);
